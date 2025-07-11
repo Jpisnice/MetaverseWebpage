@@ -1,0 +1,251 @@
+body{
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #0f0c29, #302b63, #ff0080);
+
+}
+
+nav{
+  display: flex;
+  padding-left: 10%;
+  padding-right: 10%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #333;
+  color: #fff;
+}
+
+nav a{
+  margin: 10px;
+  color: #fff;
+}
+
+.nav-actions{
+  display: flex;
+  gap: 30px;
+}
+
+.login-signup{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+@media (max-width: 600px) {
+  .login-signup {
+    display: none;
+  }
+  .nav-actions {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .nav-actions a {
+    display: block;
+    margin: 0;
+  }
+}
+
+#bg-canvas-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  pointer-events: none;
+}
+
+#fg-canvas-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 4;
+  pointer-events: none;
+}
+
+.hero-wrapper {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  background: linear-gradient(45deg, #ff0080, #302b63, #0f0c29);
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  position: relative;
+  z-index: 3;
+  width: 100vw;
+}
+
+.hero h1, .hero p, .hero button {
+  position: relative;
+  z-index: 4;
+}
+.hero-text{
+  text-wrap: balance;
+  margin-bottom: auto;
+  text-align: center;
+  justify-content: center;
+  
+}
+
+.hero h1{
+  color: #fff;
+  font-size: 4rem;
+}
+
+.features{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+  gap: 10px;
+  background-color: #333;
+  color: #fff;
+}
+
+.feature{}
+
+.loading {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 1.5rem;
+  z-index: 10;
+  pointer-events: none;
+}
+
+main, nav {
+  position: relative;
+  z-index: 2;
+}
+
+/* Optionally, add a subtle background to main content for readability */
+main {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(5px);
+  border-radius: 20px;
+}
+
+.bg-image {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: clamp(200px, 40vw, 600px);
+  height: clamp(200px, 40vw, 600px);
+  max-width: 90vw;
+  max-height: 90vh;
+  z-index: 1;
+  pointer-events: none;
+  object-fit: contain;
+}
+
+@media (max-width: 600px) {
+  .bg-image {
+    width: clamp(220px, 70vw, 380px);
+    height: clamp(220px, 70vw, 380px);
+  }
+}
+
+.plans-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.orbits-container {
+  position: relative;
+  width: 400px; /* same as largest orbit */
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.orbit{
+  position: absolute;
+  border: 4px dashed;
+  animation: rotate 10s linear infinite;
+  border-radius: 100%;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes anti-rotate {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.planet {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 70px;
+    height: 70px;
+    margin-left: -35px;
+    margin-top: -35px;
+    background-color: #ff0080c0;
+    border: 1px solid #fff;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+.o1 .planet {
+  transform: rotate(var(--angle)) translateY(-100px);
+}
+.o2 .planet {
+  transform: rotate(var(--angle)) translateY(-150px);
+}
+.o3 .planet {
+  transform: rotate(var(--angle)) translateY(-200px);
+}
+
+
+.o1{
+  border-color: #ff0080;
+  width: 200px;
+  height: 200px;
+}
+
+.o2{
+  border-color: #302b63;
+  width: 300px;
+  height: 300px;
+}
+
+.o3{
+  border-color: #0f0c29;
+  width: 400px;
+  height: 400px;
+}
