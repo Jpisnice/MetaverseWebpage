@@ -6,122 +6,158 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script type="module" src="/src/threejs-setup.js"></script>
     <script type="module" src="/src/main.js"></script>
+    <script type="module" src="/src/cards.js"></script>
+    <script type="module" src="/src/smooth-scroll.js"></script>
     <title>Metaverse App</title>
   </head>
   <body>
-    <nav>
-      <h1>Metaverse App</h1>
-      <div class="nav-actions">
-        <div class="login-signup">
-          <button class="login">Login</button>
-          <button class="signup">Signup</button>
+    <div id="smooth-wrapper">
+      <div id="smooth-content">
+        <nav>
+          <h1>Metaverse App</h1>
+          <div class="nav-actions">
+            <div class="login-signup">
+              <button class="login">Login</button>
+              <button class="signup">Signup</button>
+            </div>
+            <a href="email"> Email </a>
+            <a href="contact"> Contact </a>
+          </div>
+        </nav>
+        <main>
+        <div class="loading" id="loading">Loading 3D Scene...</div>
+        <div id="bg-canvas-container"></div>
+        <div class="hero-wrapper">
+          <section class="hero">
+            <img class="bg-image" src="/images/meta_person.png" alt="Meta Person">
+            <div class="hero-text">
+              <h1>Welcome to the Metaverse</h1>
+              <p>The future of the internet is here</p>
+            </div>
+            <div class="stats-cards">
+              <div class="stats-column left">
+                <div class="stat-card">
+                    <p>Running days</p>
+                    <p>6113</p>
+                </div>
+                <div class="stat-card">
+                    <p>Total Investments</p>
+                    <p>$0.00</p>
+                </div>
+                <div class="stat-card">
+                    <p>Project Started</p>
+                    <p>Feb 21</p>
+                </div>
+              </div>
+              <div class="stats-column right">
+                <div class="stat-card">
+                    <p>Online Visitors</p>
+                    <p>94</p>
+                </div>
+                <div class="stat-card">
+                    <p>Total Withdrawals</p>
+                    <p>$0.00</p>
+                </div>
+                <div class="stat-card">
+                    <p>Visitors online</p>
+                    <p>2</p>
+                </div>
+              </div>
+            </div>
+          </section>
         </div>
-        <a href="email"> Email </a>
-        <a href="contact"> Contact </a>
+        <div id="fg-canvas-container"></div>
+
+
+          <section class="features">
+            <div class="feature">f1</div>
+            <div class="feature">f2</div>
+            <div class="feature">f3</div>
+            <div class="feature">f4</div>
+          </section>
+          <section class="plans-section">
+            <h2 class="section-title">INVESTMENT <span>PLANS</span></h2>
+            <div class="plans-container">
+              <div class="plan-details-card">
+                <div class="plan-details-content">
+                  <div class="plan-name-basic">BASIC PLAN</div>
+                  <h3>0.2%</h3>
+                  <p>hourly for 96 hours</p>
+                  <div class="investment-range">
+                    <p>Min-Max Investment</p>
+                    <p>$10.00-$500.00 USD</p>
+                  </div>
+                  <p class="principal-included">PRINCIPAL INCLUDED</p>
+                </div>
+              </div>
+
+              <div class="orbits-container">
+                <div class="total-budget">
+                  <span>TOTAL</span>
+                  <span class="amount">100M</span>
+                  <span>SUPPLY</span>
+                </div>
+                <div class="orbit o1">
+                  <div class="planet-wrapper" style="--angle: 120deg;">
+                    <div class="planet" data-plan="3">
+                      <span class="plan-yield">Upto 2.4%</span>
+                      <span class="plan-name">PLAN 3</span>
+                    </div>
+                  </div>
+                  <div class="planet-wrapper" style="--angle: 210deg;">
+                    <div class="planet" data-plan="5">
+                      <span class="plan-yield">Upto 6.1%</span>
+                      <span class="plan-name">PLAN 5</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="orbit o2">
+                  <div class="planet-wrapper" style="--angle: 300deg;">
+                    <div class="planet" data-plan="2">
+                      <span class="plan-yield">Upto 0.4%</span>
+                      <span class="plan-name">PLAN 2</span>
+                    </div>
+                  </div>
+                  <div class="planet-wrapper" style="--angle: 30deg;">
+                    <div class="planet" data-plan="8">
+                      <span class="plan-yield">Upto 12%</span>
+                      <span class="plan-name">PLAN 8</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="orbit o3">
+                  <div class="planet-wrapper" style="--angle: 330deg;">
+                    <div class="planet" data-plan="1">
+                      <span class="plan-yield">Upto 0.2%</span>
+                      <span class="plan-name">PLAN 1</span>
+                    </div>
+                  </div>
+                  <div class="planet-wrapper" style="--angle: 60deg;">
+                    <div class="planet" data-plan="4">
+                      <span class="plan-yield">Upto 4.2%</span>
+                      <span class="plan-name">PLAN 4</span>
+                    </div>
+                  </div>
+                  <div class="planet-wrapper" style="--angle: 90deg;">
+                    <div class="planet" data-plan="7">
+                      <span class="plan-yield">Upto 10%</span>
+                      <span class="plan-name">PLAN 7</span>
+                    </div>
+                  </div>
+                  <div class="planet-wrapper" style="--angle: 150deg;">
+                    <div class="planet" data-plan="6">
+                      <span class="plan-yield">Upto 8.3%</span>
+                      <span class="plan-name">PLAN 6</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- TEMP: Add a tall section for scroll testing -->
+        </main>
       </div>
-    </nav>
-    <main>
-    <div class="loading" id="loading">Loading 3D Scene...</div>
-    <div id="bg-canvas-container"></div>
-    <div class="hero-wrapper">
-      <section class="hero">
-        <img class="bg-image" src="/images/meta_person.png" alt="Meta Person">
-        <div class="hero-text">
-          <h1>Welcome to the Metaverse</h1>
-          <p>The future of the internet is here</p>
-        </div>
-      </section>
     </div>
-    <div id="fg-canvas-container"></div>
-
-
-      <section class="features">
-        <div class="feature">f1</div>
-        <div class="feature">f2</div>
-        <div class="feature">f3</div>
-        <div class="feature">f4</div>
-      </section>
-      <section class="plans-section">
-        <h2 class="section-title">INVESTMENT <span>PLANS</span></h2>
-        <div class="plans-container">
-          <div class="plan-details-card">
-            <div class="plan-details-content">
-              <div class="plan-name-basic">BASIC PLAN</div>
-              <h3>0.2%</h3>
-              <p>hourly for 96 hours</p>
-              <div class="investment-range">
-                <p>Min-Max Investment</p>
-                <p>$10.00-$500.00 USD</p>
-              </div>
-              <p class="principal-included">PRINCIPAL INCLUDED</p>
-            </div>
-          </div>
-
-          <div class="orbits-container">
-            <div class="total-budget">
-              <span>TOTAL</span>
-              <span class="amount">100M</span>
-              <span>SUPPLY</span>
-            </div>
-            <div class="orbit o1">
-              <div class="planet-wrapper" style="--angle: 120deg;">
-                <div class="planet" data-plan="3">
-                  <span class="plan-yield">Upto 2.4%</span>
-                  <span class="plan-name">PLAN 3</span>
-                </div>
-              </div>
-              <div class="planet-wrapper" style="--angle: 210deg;">
-                <div class="planet" data-plan="5">
-                  <span class="plan-yield">Upto 6.1%</span>
-                  <span class="plan-name">PLAN 5</span>
-                </div>
-              </div>
-            </div>
-            <div class="orbit o2">
-              <div class="planet-wrapper" style="--angle: 300deg;">
-                <div class="planet" data-plan="2">
-                  <span class="plan-yield">Upto 0.4%</span>
-                  <span class="plan-name">PLAN 2</span>
-                </div>
-              </div>
-              <div class="planet-wrapper" style="--angle: 30deg;">
-                <div class="planet" data-plan="8">
-                  <span class="plan-yield">Upto 12%</span>
-                  <span class="plan-name">PLAN 8</span>
-                </div>
-              </div>
-            </div>
-            <div class="orbit o3">
-              <div class="planet-wrapper" style="--angle: 330deg;">
-                <div class="planet" data-plan="1">
-                  <span class="plan-yield">Upto 0.2%</span>
-                  <span class="plan-name">PLAN 1</span>
-                </div>
-              </div>
-              <div class="planet-wrapper" style="--angle: 60deg;">
-                <div class="planet" data-plan="4">
-                  <span class="plan-yield">Upto 4.2%</span>
-                  <span class="plan-name">PLAN 4</span>
-                </div>
-              </div>
-              <div class="planet-wrapper" style="--angle: 90deg;">
-                <div class="planet" data-plan="7">
-                  <span class="plan-yield">Upto 10%</span>
-                  <span class="plan-name">PLAN 7</span>
-                </div>
-              </div>
-              <div class="planet-wrapper" style="--angle: 150deg;">
-                <div class="planet" data-plan="6">
-                  <span class="plan-yield">Upto 8.3%</span>
-                  <span class="plan-name">PLAN 6</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- TEMP: Add a tall section for scroll testing -->
-    </main>
   </body>
 </html>
 

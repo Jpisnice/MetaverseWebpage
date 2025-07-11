@@ -414,7 +414,100 @@ main {
 
 @media (max-width: 400px) {
     .orbits-container {
-        transform: scale(0.5);
-        margin-block: -150px;
+        transform: scale(0.6);
     }
+}
+
+.stats-cards {
+  position: absolute;
+  bottom: 10vh;
+  width: 100%;
+  max-width: 900px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 5;
+  padding: 0 20px;
+}
+
+.stats-column {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 45%;
+}
+
+.stats-column.left {
+  align-items: flex-start;
+}
+
+.stats-column.right {
+  align-items: flex-end;
+}
+
+.stat-card {
+  background: rgba(40, 28, 78, 0.5);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 20px;
+  color: white;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  width: 280px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  transition: transform 0.3s ease;
+}
+
+.stat-card p:first-child {
+  font-size: 1rem;
+  margin: 0 0 10px 0;
+  opacity: 0.9;
+}
+
+.stat-card p:last-child {
+  font-size: 2rem;
+  margin: 0;
+  font-weight: bold;
+}
+
+@media (max-width: 992px) {
+  .stats-cards {
+    max-width: 700px;
+  }
+  .stat-card {
+    width: 220px;
+    padding: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .stats-cards {
+    flex-direction: column;
+    position: relative;
+    transform: none;
+    left: auto;
+    bottom: auto;
+    margin-top: 80px; /* Push below hero content on mobile */
+    gap: 20px;
+    width: 100%;
+    padding: 0;
+  }
+  .stats-column {
+    width: 100%;
+    gap: 20px;
+    align-items: center !important; /* Center all cards on mobile */
+  }
+  .stats-column .stat-card {
+    width: 70%;
+    max-width: 300px;
+    transform: translateY(0) !important; /* Reset transforms */
+  }
+}
+
+@media (max-width: 480px) {
+  .stats-column .stat-card {
+    width: 80%;
+  }
 }

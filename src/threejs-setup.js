@@ -395,7 +395,7 @@ class FloatingShapes3D {
         trigger: '.hero',
         start: 'top top',
         end: 'bottom bottom',
-        scrub: 4
+        scrub: 8
       },
       z: 10,
       y: 10,
@@ -407,7 +407,7 @@ class FloatingShapes3D {
         trigger: 'body',
         start: 'top top',
         end: 'bottom bottom',
-        scrub: 4
+        scrub: 8
       },
       y: 6,
       duration: 2
