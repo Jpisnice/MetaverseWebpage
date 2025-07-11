@@ -139,35 +139,41 @@ class FloatingShapes3D {
   }
 
   // --- Custom Material Methods ---
-  createMetallicMaterial(color = 0x888888) {
-    return new THREE.MeshStandardMaterial({
-      color,
-      metalness: 1.0,
-      roughness: 0.80,
-      transparent: false,
-      opacity: 1
-    });
+  generateGrainTexture() {
+    const size = 128;
+    const canvas = document.createElement('canvas');
+    canvas.width = size;
+    canvas.height = size;
+    const context = canvas.getContext('2d');
+    const imageData = context.createImageData(size, size);
+    const data = imageData.data;
+
+    for (let i = 0; i < data.length; i += 4) {
+        const value = Math.random() * 128 + 128;
+        data[i] = value;
+        data[i+1] = value;
+        data[i+2] = value;
+        data[i+3] = 255;
+    }
+    context.putImageData(imageData, 0, 0);
+
+    const texture = new THREE.CanvasTexture(canvas);
+    texture.wrapS = THREE.RepeatWrapping;
+    texture.wrapT = THREE.RepeatWrapping;
+    texture.repeat.set(4, 4);
+    return texture;
   }
 
-  createMirrorMaterial() {
-    return new THREE.MeshStandardMaterial({
-      color: 0xffffff,
-      metalness: 1.0,
-      roughness: 0.70,
-      transparent: true,
-      opacity: 1
-    });
-  }
-
-  createFlatShadedMaterial(color = 0x4a90e2) {
-    return new THREE.MeshStandardMaterial({
-      color,
-      metalness: 0.7,
-      roughness: 0.3,
-      flatShading: true,
-      transparent: true,
-      opacity: 1
-    });
+  createGrainyMetallicMaterial() {
+      const grainTexture = this.generateGrainTexture();
+      return new THREE.MeshStandardMaterial({
+          color: 0xcccccc,
+          metalness: 1.0,
+          roughness: 0.6,
+          bumpMap: grainTexture,
+          bumpScale: 0.03,
+          transparent: false,
+      });
   }
 
   // --- Add Custom Shape ---
@@ -246,10 +252,59 @@ class FloatingShapes3D {
   }
 
   createShapes() {
+    const grainyMetallicMaterial = this.createGrainyMetallicMaterial();
+
+    // Textures for spheres
+    const textureLoader = new THREE.TextureLoader();
+    const baseTexture = textureLoader.load('/textures/panel/texture.png');
+    baseTexture.wrapS = THREE.RepeatWrapping;
+    baseTexture.wrapT = THREE.RepeatWrapping;
+    baseTexture.repeat.set(2, 2);
+
+    const detailTexture = textureLoader.load('/textures/panel/texture2.png');
+    detailTexture.wrapS = THREE.RepeatWrapping;
+    detailTexture.wrapT = THREE.RepeatWrapping;
+    detailTexture.repeat.set(2, 2);
+
+    const heightTexture = textureLoader.load('/textures/panel/texture3-height.png');
+    heightTexture.wrapS = THREE.RepeatWrapping;
+    heightTexture.wrapT = THREE.RepeatWrapping;
+    heightTexture.repeat.set(2, 2);
+
+    const normalTexture = textureLoader.load('/textures/panel/texture4-normal.png');
+    normalTexture.wrapS = THREE.RepeatWrapping;
+    normalTexture.wrapT = THREE.RepeatWrapping;
+    normalTexture.repeat.set(2, 2);
+
+    const aoTexture = textureLoader.load('/textures/panel/texture5-AmbientOclusions.png');
+    aoTexture.wrapS = THREE.RepeatWrapping;
+    aoTexture.wrapT = THREE.RepeatWrapping;
+    aoTexture.repeat.set(2, 2);
+
+    const metallicTexture = textureLoader.load('/textures/panel/texture6-metallic.png');
+    metallicTexture.wrapS = THREE.RepeatWrapping;
+    metallicTexture.wrapT = THREE.RepeatWrapping;
+    metallicTexture.repeat.set(2, 2);
+
+    const sphereMaterial = new THREE.MeshStandardMaterial({
+        map: baseTexture,
+        metalnessMap: metallicTexture,
+        normalMap: normalTexture,
+        aoMap: aoTexture,
+        aoMapIntensity: 1.5,
+        emissiveMap: detailTexture,
+        emissive: new THREE.Color(0xffffff),
+        emissiveIntensity: 0.6,
+        displacementMap: heightTexture,
+        displacementScale: 0.1,
+        roughnessMap: detailTexture,
+        metalness: 1.0,
+        roughness: 1.0,
+    });
+
     // Background Icosahedrons
     for (const pos of SHAPE_CONFIG.bgIcosahedrons) {
       const icosahedronGeometry = new THREE.IcosahedronGeometry(3, 0);
-      const icosahedronMaterial = this.createFlatShadedMaterial(0x4a90e2);
       const wireframeMaterial = new THREE.MeshBasicMaterial({
         color: 0x00ffff,
         wireframe: true,
@@ -258,7 +313,7 @@ class FloatingShapes3D {
       });
       this.addCustomShape(
         icosahedronGeometry,
-        icosahedronMaterial,
+        grainyMetallicMaterial,
         pos,
         wireframeMaterial,
         -1,
@@ -268,7 +323,7 @@ class FloatingShapes3D {
     // Background Spheres
     for (const pos of SHAPE_CONFIG.bgSpheres) {
       const sphereGeometry = new THREE.SphereGeometry(3, 64, 64);
-      const sphereMaterial = this.createMirrorMaterial();
+      sphereGeometry.setAttribute('uv2', new THREE.BufferAttribute(sphereGeometry.attributes.uv.array, 2));
       this.addCustomShape(
         sphereGeometry,
         sphereMaterial,
@@ -281,7 +336,6 @@ class FloatingShapes3D {
     // Foreground Icosahedrons
     for (const pos of SHAPE_CONFIG.fgIcosahedrons) {
       const icosahedronGeometry = new THREE.IcosahedronGeometry(3, 0);
-      const icosahedronMaterial = this.createFlatShadedMaterial(0x4a90e2);
       const wireframeMaterial = new THREE.MeshBasicMaterial({
         color: 0x00ffff,
         wireframe: true,
@@ -290,7 +344,7 @@ class FloatingShapes3D {
       });
       this.addCustomShape(
         icosahedronGeometry,
-        icosahedronMaterial,
+        grainyMetallicMaterial,
         pos,
         wireframeMaterial,
         1,
@@ -300,7 +354,7 @@ class FloatingShapes3D {
     // Foreground Spheres
     for (const pos of SHAPE_CONFIG.fgSpheres) {
       const sphereGeometry = new THREE.SphereGeometry(3, 64, 64);
-      const sphereMaterial = this.createMirrorMaterial();
+      sphereGeometry.setAttribute('uv2', new THREE.BufferAttribute(sphereGeometry.attributes.uv.array, 2));
       this.addCustomShape(
         sphereGeometry,
         sphereMaterial,
@@ -341,11 +395,11 @@ class FloatingShapes3D {
         trigger: '.hero',
         start: 'top top',
         end: 'bottom bottom',
-        scrub: 6
+        scrub: 4
       },
       z: 10,
       y: 10,
-      duration: 2
+      duration: 4
     });
     // Scene rotation (main scene)
     gsap.to(this.scene.rotation, {
@@ -353,7 +407,7 @@ class FloatingShapes3D {
         trigger: 'body',
         start: 'top top',
         end: 'bottom bottom',
-        scrub: 6
+        scrub: 4
       },
       y: 6,
       duration: 2
