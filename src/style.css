@@ -315,8 +315,12 @@ main {
     font-size: 0.8rem;
     text-align: center;
     cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    animation: anti-rotate 10s linear infinite;
+    animation: anti-rotate 20s linear infinite;
+    transform: rotate(calc(-1 * var(--angle)));
+}
+
+.planet:hover {
+  box-shadow: 0 0 20px #ff5858;
 }
 
 .planet-wrapper {
