@@ -254,15 +254,23 @@ main {
 
 .total-budget {
   position: absolute;
-  bottom: 80px;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -50%);
   color: white;
   font-weight: bold;
   text-align: center;
   z-index: 5;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: rgba(48, 43, 99, 0.5);
+  border: 2px solid #8e2de2;
+  backdrop-filter: blur(5px);
 }
 
 .total-budget .amount {
@@ -281,6 +289,7 @@ main {
   left: 0;
   right: 0;
   margin: auto;
+  pointer-events: none;
 }
 
 @keyframes rotate {
@@ -317,6 +326,7 @@ main {
     cursor: pointer;
     animation: anti-rotate 20s linear infinite;
     transform: rotate(calc(-1 * var(--angle)));
+    pointer-events: auto;
 }
 
 .planet:hover {

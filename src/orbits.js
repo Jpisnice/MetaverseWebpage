@@ -63,7 +63,7 @@ function setupPlanInteractions() {
   const investmentEl = detailsCard.querySelector('.investment-range p:last-child');
 
   planets.forEach(planet => {
-    planet.addEventListener('click', () => {
+    planet.addEventListener('mouseover', () => {
       const planId = planet.dataset.plan;
       const data = planData[planId];
 
