@@ -162,26 +162,125 @@ main {
 }
 
 .plans-section {
+  width:auto;
+  height:fit-content;
+  background-color: #1a1a1d;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.section-title {
+  color: #fff;
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.section-title span {
+  color: #c3073f;
+}
+
+.plans-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  gap: 50px;
+  width: 100%;
+}
+
+.plan-details-card {
+  background: linear-gradient(145deg, #8e2de2, #4a00e0);
+  color: #fff;
+  padding: 30px;
+  border-radius: 20px;
+  width: 350px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.plan-details-content .plan-name-basic {
+  background-color: #ff4081;
+  color: white;
+  padding: 5px 15px;
+  border-radius: 15px;
+  display: inline-block;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.plan-details-content h3 {
+  font-size: 3rem;
+  margin: 10px 0;
+}
+
+.plan-details-content p {
+  font-size: 1rem;
+  margin: 5px 0;
+}
+
+.investment-range {
+  margin: 20px 0;
+  background-color: rgba(0,0,0,0.2);
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.investment-range p {
+  margin: 5px 0;
+  font-weight: bold;
+}
+
+.principal-included {
+  font-size: 0.8rem;
+  font-weight: bold;
+  opacity: 0.8;
+  margin-top: 20px;
 }
 
 .orbits-container {
   position: relative;
-  width: 400px; /* same as largest orbit */
-  height: 400px;
+  width: 600px;
+  height: 600px;
+}
+
+.total-budget {
+  position: absolute;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  z-index: 5;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+}
+
+.total-budget .amount {
+  font-size: 2.5rem;
+  line-height: 1;
 }
 
 .orbit{
   position: absolute;
-  border: 4px dashed;
-  animation: rotate 10s linear infinite;
-  border-radius: 100%;
+  border-style: dashed;
+  border-width: 3px;
+  animation: rotate 20s linear infinite;
+  border-radius: 50%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
 }
 
 @keyframes rotate {
@@ -195,57 +294,84 @@ main {
 
 @keyframes anti-rotate {
   from {
-    transform: rotate(360deg);
+    transform: rotate(0deg);
   }
   to {
-    transform: rotate(0deg);
+    transform: rotate(-360deg);
   }
 }
 
 .planet {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 70px;
-    height: 70px;
-    margin-left: -35px;
-    margin-top: -35px;
-    background-color: #ff0080c0;
-    border: 1px solid #fff;
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(145deg, #f857a6, #ff5858);
+    border: 2px solid #fff;
     color: white;
     border-radius: 50%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     font-size: 0.8rem;
     text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: anti-rotate 10s linear infinite;
 }
 
-.o1 .planet {
-  transform: rotate(var(--angle)) translateY(-100px);
+.planet-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -40px;
+  margin-top: -40px;
 }
-.o2 .planet {
-  transform: rotate(var(--angle)) translateY(-150px);
+
+.o1 .planet-wrapper {
+  transform: rotate(var(--angle)) translateY(200px);
 }
-.o3 .planet {
+.o2 .planet-wrapper {
+  transform: rotate(var(--angle)) translateY(250px);
+}
+.o3 .planet-wrapper {
+  transform: rotate(var(--angle)) translateY(300px);
+}
+
+.planet .plan-yield {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.planet .plan-name {
+  font-size: 0.7rem;
+  opacity: 0.9;
+}
+
+.p-o1 {
   transform: rotate(var(--angle)) translateY(-200px);
+}
+.p-o2 {
+  transform: rotate(var(--angle)) translateY(-250px);
+}
+.p-o3 {
+  transform: rotate(var(--angle)) translateY(-300px);
 }
 
 
 .o1{
   border-color: #ff0080;
-  width: 200px;
-  height: 200px;
+  width: 400px;
+  height: 400px;
 }
 
 .o2{
   border-color: #302b63;
-  width: 300px;
-  height: 300px;
+  width: 500px;
+  height: 500px;
 }
 
 .o3{
-  border-color: #0f0c29;
-  width: 400px;
-  height: 400px;
+  border-color: #302b63;
+  width: 600px;
+  height: 600px;
 }
