@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
             x: xOffsets.right[index] - 50,
             y: 50,
         }, {
-            duration: 0.8,
+            duration: 2,
             autoAlpha: 1,
             x: xOffsets.right[index],
             y: 0,

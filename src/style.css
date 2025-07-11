@@ -3,18 +3,34 @@ body{
   padding: 0;
   font-family: Arial, sans-serif;
   background: linear-gradient(135deg, #0f0c29, #302b63, #ff0080);
-
+  color: #fff;
 }
 
 nav{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
   display: flex;
-  padding-left: 10%;
-  padding-right: 10%;
+  padding: 20px 50px;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
-  background-color: #333;
-  color: #fff;
+  z-index: 10;
+  background: rgba(0,0,0,0.1);
+  backdrop-filter: blur(5px);
+}
+
+.logo {
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.infinity {
+  font-size: 1.8rem;
+  margin: 0 -5px;
+  color: #ff0080;
 }
 
 nav a{
@@ -24,15 +40,65 @@ nav a{
 
 .nav-actions{
   display: flex;
+  align-items: center;
   gap: 30px;
 }
 
 .login-signup{
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 15px;
 }
+
+.login-signup button {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 25px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255,255,255,0.3);
+}
+
+.login-signup .login {
+  background: linear-gradient(45deg, #3672f8, #00bfff);
+  box-shadow: 0 4px 15px rgba(0, 191, 255, 0.4);
+}
+
+.login-signup .registration {
+  background: linear-gradient(45deg, #f83659, #ff8c00);
+  box-shadow: 0 4px 15px rgba(255, 140, 0, 0.4);
+}
+
+.login-signup button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.contact-info {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.contact-info span i {
+  margin-right: 8px;
+  color: #ff0080;
+}
+
+@media (max-width: 992px) {
+  .contact-info {
+    display: none;
+  }
+}
+
 @media (max-width: 600px) {
+  nav {
+    flex-direction: column;
+    padding: 20px;
+  }
   .login-signup {
     display: none;
   }
