@@ -404,7 +404,7 @@ class FloatingShapes3D {
     // Scene rotation (main scene)
     gsap.to(this.scene.rotation, {
       scrollTrigger: {
-        trigger: 'body',
+        trigger: '.hero',
         start: 'top top',
         end: 'bottom bottom',
         scrub: 8

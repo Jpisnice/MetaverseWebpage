@@ -4,7 +4,13 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <script type="module" src="/src/threejs-setup.js"></script>
     <script type="module" src="/src/main.js"></script>
     <script type="module" src="/src/cards.js"></script>
@@ -16,7 +22,10 @@
       <div id="smooth-content">
         <nav>
           <div class="logo">
-            meta<span class="infinity">∞</span>verse
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#ff0080" class="bi bi-meta" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M8.217 5.243C9.145 3.988 10.171 3 11.483 3 13.96 3 16 6.153 16.001 9.907c0 2.29-.986 3.725-2.757 3.725-1.543 0-2.395-.866-3.924-3.424l-.667-1.123-.118-.197a55 55 0 0 0-.53-.877l-1.178 2.08c-1.673 2.925-2.615 3.541-3.923 3.541C1.086 13.632 0 12.217 0 9.973 0 6.388 1.995 3 4.598 3q.477-.001.924.122c.31.086.611.22.913.407.577.359 1.154.915 1.782 1.714m1.516 2.224q-.378-.615-.727-1.133L9 6.326c.845-1.305 1.543-1.954 2.372-1.954 1.723 0 3.102 2.537 3.102 5.653 0 1.188-.39 1.877-1.195 1.877-.773 0-1.142-.51-2.61-2.87zM4.846 4.756c.725.1 1.385.634 2.34 2.001A212 212 0 0 0 5.551 9.3c-1.357 2.126-1.826 2.603-2.581 2.603-.777 0-1.24-.682-1.24-1.9 0-2.602 1.298-5.264 2.846-5.264q.137 0 .27.018"/>
+            </svg>
+            meta verse
           </div>
           <div class="nav-actions">
             <div class="login-signup">
@@ -24,55 +33,103 @@
               <button class="registration">Registration</button>
             </div>
             <div class="contact-info">
-              <span><i class="fas fa-phone"></i> CALL NOW: 0203 302 0476</span>
-              <span><i class="fas fa-paper-plane"></i> TELEGRAM: @metaverse</span>
+              <span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ff0080" class="bi bi-telephone" viewBox="0 0 16 16">
+                  <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
+                </svg>
+                CALL NOW: 0203 302 0476
+              </span>
+              <span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ff0080" class="bi bi-send" viewBox="0 0 16 16">
+                  <path d="M15.854.146a.5.5 0 0 1 .11.54L13.026 8H4a.5.5 0 0 1 0 1h8.026l2.938 7.314a.5.5 0 0 1-.11.54l-.5.5a.5.5 0 0 1-.54.11L8 13.026V4a.5.5 0 0 1 1 0v8.026l6.314 2.938a.5.5 0 0 1 .11.54l-.5.5z"/>
+                </svg>
+                TELEGRAM: @metaverse
+              </span>
             </div>
           </div>
         </nav>
         <main>
-        <div class="loading" id="loading">Loading 3D Scene...</div>
-        <div id="bg-canvas-container"></div>
-        <div class="hero-wrapper">
-          <section class="hero">
-            <img class="bg-image" src="/images/meta_person.png" alt="Meta Person">
-            <div class="hero-text">
-              <h1>Welcome to the Metaverse</h1>
-              <p>The future of the internet is here</p>
-            </div>
-            <div class="stats-cards">
-              <div class="stats-column left">
-                <div class="stat-card">
+          <div class="loading" id="loading">Loading 3D Scene...</div>
+          <div id="bg-canvas-container"></div>
+          <div class="hero-wrapper">
+            <section class="hero">
+              <img
+                class="bg-image"
+                src="/images/meta_person.png"
+                alt="Meta Person"
+              />
+              <div class="hero-text">
+                <div class="hero-meta-icon" id="hero-meta-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="#ff0080" class="bi bi-meta" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8.217 5.243C9.145 3.988 10.171 3 11.483 3 13.96 3 16 6.153 16.001 9.907c0 2.29-.986 3.725-2.757 3.725-1.543 0-2.395-.866-3.924-3.424l-.667-1.123-.118-.197a55 55 0 0 0-.53-.877l-1.178 2.08c-1.673 2.925-2.615 3.541-3.923 3.541C1.086 13.632 0 12.217 0 9.973 0 6.388 1.995 3 4.598 3q.477-.001.924.122c.31.086.611.22.913.407.577.359 1.154.915 1.782 1.714m1.516 2.224q-.378-.615-.727-1.133L9 6.326c.845-1.305 1.543-1.954 2.372-1.954 1.723 0 3.102 2.537 3.102 5.653 0 1.188-.39 1.877-1.195 1.877-.773 0-1.142-.51-2.61-2.87zM4.846 4.756c.725.1 1.385.634 2.34 2.001A212 212 0 0 0 5.551 9.3c-1.357 2.126-1.826 2.603-2.581 2.603-.777 0-1.24-.682-1.24-1.9 0-2.602 1.298-5.264 2.846-5.264q.137 0 .27.018"/>
+                  </svg>
+                </div>
+                <h1>Welcome to the Metaverse</h1>
+                <p>The future of the internet is here</p>
+              </div>
+              <div class="stats-cards">
+                <div class="stats-column left">
+                  <div class="stat-card">
+                    <div class="stat-meta-icon" id="stat-meta-1">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#ff0080" class="bi bi-meta" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8.217 5.243C9.145 3.988 10.171 3 11.483 3 13.96 3 16 6.153 16.001 9.907c0 2.29-.986 3.725-2.757 3.725-1.543 0-2.395-.866-3.924-3.424l-.667-1.123-.118-.197a55 55 0 0 0-.53-.877l-1.178 2.08c-1.673 2.925-2.615 3.541-3.923 3.541C1.086 13.632 0 12.217 0 9.973 0 6.388 1.995 3 4.598 3q.477-.001.924.122c.31.086.611.22.913.407.577.359 1.154.915 1.782 1.714m1.516 2.224q-.378-.615-.727-1.133L9 6.326c.845-1.305 1.543-1.954 2.372-1.954 1.723 0 3.102 2.537 3.102 5.653 0 1.188-.39 1.877-1.195 1.877-.773 0-1.142-.51-2.61-2.87zM4.846 4.756c.725.1 1.385.634 2.34 2.001A212 212 0 0 0 5.551 9.3c-1.357 2.126-1.826 2.603-2.581 2.603-.777 0-1.24-.682-1.24-1.9 0-2.602 1.298-5.264 2.846-5.264q.137 0 .27.018"/>
+                      </svg>
+                    </div>
                     <p>Running days</p>
                     <p>6113</p>
-                </div>
-                <div class="stat-card">
+                  </div>
+                  <div class="stat-card">
+                    <div class="stat-meta-icon" id="stat-meta-2">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#ff0080" class="bi bi-meta" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8.217 5.243C9.145 3.988 10.171 3 11.483 3 13.96 3 16 6.153 16.001 9.907c0 2.29-.986 3.725-2.757 3.725-1.543 0-2.395-.866-3.924-3.424l-.667-1.123-.118-.197a55 55 0 0 0-.53-.877l-1.178 2.08c-1.673 2.925-2.615 3.541-3.923 3.541C1.086 13.632 0 12.217 0 9.973 0 6.388 1.995 3 4.598 3q.477-.001.924.122c.31.086.611.22.913.407.577.359 1.154.915 1.782 1.714m1.516 2.224q-.378-.615-.727-1.133L9 6.326c.845-1.305 1.543-1.954 2.372-1.954 1.723 0 3.102 2.537 3.102 5.653 0 1.188-.39 1.877-1.195 1.877-.773 0-1.142-.51-2.61-2.87zM4.846 4.756c.725.1 1.385.634 2.34 2.001A212 212 0 0 0 5.551 9.3c-1.357 2.126-1.826 2.603-2.581 2.603-.777 0-1.24-.682-1.24-1.9 0-2.602 1.298-5.264 2.846-5.264q.137 0 .27.018"/>
+                      </svg>
+                    </div>
                     <p>Total Investments</p>
                     <p>$0.00</p>
-                </div>
-                <div class="stat-card">
+                  </div>
+                  <div class="stat-card">
+                    <div class="stat-meta-icon" id="stat-meta-3">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#ff0080" class="bi bi-meta" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8.217 5.243C9.145 3.988 10.171 3 11.483 3 13.96 3 16 6.153 16.001 9.907c0 2.29-.986 3.725-2.757 3.725-1.543 0-2.395-.866-3.924-3.424l-.667-1.123-.118-.197a55 55 0 0 0-.53-.877l-1.178 2.08c-1.673 2.925-2.615 3.541-3.923 3.541C1.086 13.632 0 12.217 0 9.973 0 6.388 1.995 3 4.598 3q.477-.001.924.122c.31.086.611.22.913.407.577.359 1.154.915 1.782 1.714m1.516 2.224q-.378-.615-.727-1.133L9 6.326c.845-1.305 1.543-1.954 2.372-1.954 1.723 0 3.102 2.537 3.102 5.653 0 1.188-.39 1.877-1.195 1.877-.773 0-1.142-.51-2.61-2.87zM4.846 4.756c.725.1 1.385.634 2.34 2.001A212 212 0 0 0 5.551 9.3c-1.357 2.126-1.826 2.603-2.581 2.603-.777 0-1.24-.682-1.24-1.9 0-2.602 1.298-5.264 2.846-5.264q.137 0 .27.018"/>
+                      </svg>
+                    </div>
                     <p>Project Started</p>
                     <p>Feb 21</p>
+                  </div>
                 </div>
-              </div>
-              <div class="stats-column right">
-                <div class="stat-card">
+                <div class="stats-column right">
+                  <div class="stat-card">
+                    <div class="stat-meta-icon" id="stat-meta-4">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#ff0080" class="bi bi-meta" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8.217 5.243C9.145 3.988 10.171 3 11.483 3 13.96 3 16 6.153 16.001 9.907c0 2.29-.986 3.725-2.757 3.725-1.543 0-2.395-.866-3.924-3.424l-.667-1.123-.118-.197a55 55 0 0 0-.53-.877l-1.178 2.08c-1.673 2.925-2.615 3.541-3.923 3.541C1.086 13.632 0 12.217 0 9.973 0 6.388 1.995 3 4.598 3q.477-.001.924.122c.31.086.611.22.913.407.577.359 1.154.915 1.782 1.714m1.516 2.224q-.378-.615-.727-1.133L9 6.326c.845-1.305 1.543-1.954 2.372-1.954 1.723 0 3.102 2.537 3.102 5.653 0 1.188-.39 1.877-1.195 1.877-.773 0-1.142-.51-2.61-2.87zM4.846 4.756c.725.1 1.385.634 2.34 2.001A212 212 0 0 0 5.551 9.3c-1.357 2.126-1.826 2.603-2.581 2.603-.777 0-1.24-.682-1.24-1.9 0-2.602 1.298-5.264 2.846-5.264q.137 0 .27.018"/>
+                      </svg>
+                    </div>
                     <p>Online Visitors</p>
                     <p>94</p>
-                </div>
-                <div class="stat-card">
+                  </div>
+                  <div class="stat-card">
+                    <div class="stat-meta-icon" id="stat-meta-5">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#ff0080" class="bi bi-meta" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8.217 5.243C9.145 3.988 10.171 3 11.483 3 13.96 3 16 6.153 16.001 9.907c0 2.29-.986 3.725-2.757 3.725-1.543 0-2.395-.866-3.924-3.424l-.667-1.123-.118-.197a55 55 0 0 0-.53-.877l-1.178 2.08c-1.673 2.925-2.615 3.541-3.923 3.541C1.086 13.632 0 12.217 0 9.973 0 6.388 1.995 3 4.598 3q.477-.001.924.122c.31.086.611.22.913.407.577.359 1.154.915 1.782 1.714m1.516 2.224q-.378-.615-.727-1.133L9 6.326c.845-1.305 1.543-1.954 2.372-1.954 1.723 0 3.102 2.537 3.102 5.653 0 1.188-.39 1.877-1.195 1.877-.773 0-1.142-.51-2.61-2.87zM4.846 4.756c.725.1 1.385.634 2.34 2.001A212 212 0 0 0 5.551 9.3c-1.357 2.126-1.826 2.603-2.581 2.603-.777 0-1.24-.682-1.24-1.9 0-2.602 1.298-5.264 2.846-5.264q.137 0 .27.018"/>
+                      </svg>
+                    </div>
                     <p>Total Withdrawals</p>
                     <p>$0.00</p>
-                </div>
-                <div class="stat-card">
+                  </div>
+                  <div class="stat-card">
+                    <div class="stat-meta-icon" id="stat-meta-6">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#ff0080" class="bi bi-meta" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8.217 5.243C9.145 3.988 10.171 3 11.483 3 13.96 3 16 6.153 16.001 9.907c0 2.29-.986 3.725-2.757 3.725-1.543 0-2.395-.866-3.924-3.424l-.667-1.123-.118-.197a55 55 0 0 0-.53-.877l-1.178 2.08c-1.673 2.925-2.615 3.541-3.923 3.541C1.086 13.632 0 12.217 0 9.973 0 6.388 1.995 3 4.598 3q.477-.001.924.122c.31.086.611.22.913.407.577.359 1.154.915 1.782 1.714m1.516 2.224q-.378-.615-.727-1.133L9 6.326c.845-1.305 1.543-1.954 2.372-1.954 1.723 0 3.102 2.537 3.102 5.653 0 1.188-.39 1.877-1.195 1.877-.773 0-1.142-.51-2.61-2.87zM4.846 4.756c.725.1 1.385.634 2.34 2.001A212 212 0 0 0 5.551 9.3c-1.357 2.126-1.826 2.603-2.581 2.603-.777 0-1.24-.682-1.24-1.9 0-2.602 1.298-5.264 2.846-5.264q.137 0 .27.018"/>
+                      </svg>
+                    </div>
                     <p>Visitors online</p>
                     <p>2</p>
+                  </div>
                 </div>
               </div>
-            </div>
-          </section>
-        </div>
-        <div id="fg-canvas-container"></div>
-
+            </section>
+          </div>
+          <div id="fg-canvas-container"></div>
 
           <section class="features">
             <div class="feature">f1</div>
@@ -81,7 +138,14 @@
             <div class="feature">f4</div>
           </section>
           <section class="plans-section">
-            <h2 class="section-title">INVESTMENT <span>PLANS</span></h2>
+            <h2 class="section-title">
+              <span class="section-meta-icon" id="section-meta-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#ff0080" class="bi bi-meta" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="M8.217 5.243C9.145 3.988 10.171 3 11.483 3 13.96 3 16 6.153 16.001 9.907c0 2.29-.986 3.725-2.757 3.725-1.543 0-2.395-.866-3.924-3.424l-.667-1.123-.118-.197a55 55 0 0 0-.53-.877l-1.178 2.08c-1.673 2.925-2.615 3.541-3.923 3.541C1.086 13.632 0 12.217 0 9.973 0 6.388 1.995 3 4.598 3q.477-.001.924.122c.31.086.611.22.913.407.577.359 1.154.915 1.782 1.714m1.516 2.224q-.378-.615-.727-1.133L9 6.326c.845-1.305 1.543-1.954 2.372-1.954 1.723 0 3.102 2.537 3.102 5.653 0 1.188-.39 1.877-1.195 1.877-.773 0-1.142-.51-2.61-2.87zM4.846 4.756c.725.1 1.385.634 2.34 2.001A212 212 0 0 0 5.551 9.3c-1.357 2.126-1.826 2.603-2.581 2.603-.777 0-1.24-.682-1.24-1.9 0-2.602 1.298-5.264 2.846-5.264q.137 0 .27.018"/>
+                </svg>
+              </span>
+              INVESTMENT <span>PLANS</span>
+            </h2>
             <div class="plans-container">
               <div class="plan-details-card">
                 <div class="plan-details-content">
@@ -103,13 +167,13 @@
                   <span>SUPPLY</span>
                 </div>
                 <div class="orbit o1">
-                  <div class="planet-wrapper" style="--angle: 120deg;">
+                  <div class="planet-wrapper" style="--angle: 120deg">
                     <div class="planet" data-plan="3">
                       <span class="plan-yield">Upto 2.4%</span>
                       <span class="plan-name">PLAN 3</span>
                     </div>
                   </div>
-                  <div class="planet-wrapper" style="--angle: 210deg;">
+                  <div class="planet-wrapper" style="--angle: 210deg">
                     <div class="planet" data-plan="5">
                       <span class="plan-yield">Upto 6.1%</span>
                       <span class="plan-name">PLAN 5</span>
@@ -117,13 +181,13 @@
                   </div>
                 </div>
                 <div class="orbit o2">
-                  <div class="planet-wrapper" style="--angle: 300deg;">
+                  <div class="planet-wrapper" style="--angle: 300deg">
                     <div class="planet" data-plan="2">
                       <span class="plan-yield">Upto 0.4%</span>
                       <span class="plan-name">PLAN 2</span>
                     </div>
                   </div>
-                  <div class="planet-wrapper" style="--angle: 30deg;">
+                  <div class="planet-wrapper" style="--angle: 30deg">
                     <div class="planet" data-plan="8">
                       <span class="plan-yield">Upto 12%</span>
                       <span class="plan-name">PLAN 8</span>
@@ -131,25 +195,25 @@
                   </div>
                 </div>
                 <div class="orbit o3">
-                  <div class="planet-wrapper" style="--angle: 330deg;">
+                  <div class="planet-wrapper" style="--angle: 330deg">
                     <div class="planet" data-plan="1">
                       <span class="plan-yield">Upto 0.2%</span>
                       <span class="plan-name">PLAN 1</span>
                     </div>
                   </div>
-                  <div class="planet-wrapper" style="--angle: 60deg;">
+                  <div class="planet-wrapper" style="--angle: 60deg">
                     <div class="planet" data-plan="4">
                       <span class="plan-yield">Upto 4.2%</span>
                       <span class="plan-name">PLAN 4</span>
                     </div>
                   </div>
-                  <div class="planet-wrapper" style="--angle: 90deg;">
+                  <div class="planet-wrapper" style="--angle: 90deg">
                     <div class="planet" data-plan="7">
                       <span class="plan-yield">Upto 10%</span>
                       <span class="plan-name">PLAN 7</span>
                     </div>
                   </div>
-                  <div class="planet-wrapper" style="--angle: 150deg;">
+                  <div class="planet-wrapper" style="--angle: 150deg">
                     <div class="planet" data-plan="6">
                       <span class="plan-yield">Upto 8.3%</span>
                       <span class="plan-name">PLAN 6</span>
@@ -165,4 +229,3 @@
     </div>
   </body>
 </html>
-

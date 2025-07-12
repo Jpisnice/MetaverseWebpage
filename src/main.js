@@ -8,6 +8,7 @@ gsap.registerPlugin(SplitText);
 
 document.addEventListener('DOMContentLoaded', () => {
   setupPlanInteractions();
+  
   const text = new SplitText('.hero-text', {
     type: 'chars',
   });
