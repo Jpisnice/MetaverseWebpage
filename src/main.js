@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   gsap.from(text.chars, {
     opacity: 0.1,
-    duration: 0.5,
+    duration: 0.8,
     ease: 'power2.inOut',
     stagger: 0.05,
   });
