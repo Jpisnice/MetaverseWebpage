@@ -213,8 +213,10 @@ nav a{
 }
 
 .features{
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
   display: flex;
-  justify-content: space-around;
+  gap: 20px;
+  justify-content: center;
   align-items: center;
   background: rgba(40, 32, 49, 0.15);
   border-radius: 20px;
