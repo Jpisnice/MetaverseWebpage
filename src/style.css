@@ -12,12 +12,11 @@ nav{
   left: 0;
   width: 100%;
   display: flex;
-  padding: 20px 50px;
+  padding: 20px 80px;
   justify-content: space-between;
   align-items: center;
   z-index: 10;
-  background: rgba(0,0,0,0.1);
-  backdrop-filter: blur(5px);
+  background: transparent;
 }
 
 .logo {
@@ -97,50 +96,71 @@ nav a{
 @media (max-width: 600px) {
   nav {
     flex-direction: column;
-    padding: 20px;
+    padding: 15px 20px;
+    gap: 15px;
   }
-  .login-signup {
-    display: none;
+  
+  .logo {
+    font-size: 1.5rem;
+    text-align: center;
   }
+  
   .nav-actions {
     flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .login-signup {
+    display: flex;
     gap: 10px;
-    align-items: flex-start;
+    justify-content: center;
   }
-  .nav-actions a {
-    display: block;
-    margin: 0;
+  
+  .login-signup button {
+    padding: 8px 16px;
+    font-size: 0.9rem;
   }
+  
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+    font-size: 0.8rem;
+  }
+  
+  .contact-info span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+}
+
+#bg-canvas-container,
+#fg-canvas-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
 }
 
 #bg-canvas-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
   z-index: 1;
-  pointer-events: none;
 }
 
 #fg-canvas-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
   z-index: 4;
-  pointer-events: none;
 }
 
 .hero-wrapper {
   position: relative;
   width: 100vw;
   height: 100vh;
-  display: flex;
-  align-items: stretch;
-  justify-content: center;
-  background: linear-gradient(45deg, #ff0080, #302b63, #0f0c29);
+  overflow: hidden;
 }
 
 .hero {
@@ -227,6 +247,11 @@ main {
   border-radius: 20px;
 }
 
+.hero-nav{
+  background: linear-gradient(45deg, #ff0080, #302b63, #0f0c29);
+  margin:0px;
+}
+
 .bg-image {
   position: absolute;
   left: 50%;
@@ -266,6 +291,7 @@ main {
   font-size: 2.5rem;
   text-align: center;
   margin-bottom: 40px;
+  text-wrap: balance;
 }
 
 .section-title span {
@@ -296,10 +322,10 @@ main {
 .plan-details-card {
   background: linear-gradient(145deg, #8e2de2, #4a00e0);
   color: #fff;
-  padding: 30px;
+  padding: 20px;
   border-radius: 20px;
-  width: 350px;
-  height: 400px;
+  width: 280px;
+  height: 320px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -318,7 +344,7 @@ main {
 }
 
 .plan-details-content h3 {
-  font-size: 3rem;
+  font-size: 2.5rem;
   margin: 10px 0;
 }
 
@@ -350,6 +376,7 @@ main {
   position: relative;
   width: 600px;
   height: 600px;
+  margin: 40px;
 }
 
 .total-budget {
@@ -595,31 +622,38 @@ main {
 
 @media (max-width: 768px) {
   .stats-cards {
-    flex-direction: column;
-    position: relative;
-    transform: none;
-    left: auto;
-    bottom: auto;
-    margin-top: 80px; /* Push below hero content on mobile */
-    gap: 20px;
-    width: 100%;
-    padding: 0;
-  }
-  .stats-column {
-    width: 100%;
-    gap: 20px;
-    align-items: center !important; /* Center all cards on mobile */
-  }
-  .stats-column .stat-card {
-    width: 70%;
-    max-width: 300px;
-    transform: translateY(0) !important; /* Reset transforms */
+    display: none;
   }
 }
 
 @media (max-width: 480px) {
   .stats-column .stat-card {
     width: 80%;
+  }
+  
+  nav {
+    padding: 10px 15px;
+    gap: 10px;
+  }
+  
+  .logo {
+    font-size: 1.3rem;
+  }
+  
+  .login-signup button {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+  
+  .contact-info {
+    font-size: 0.7rem;
+    gap: 6px;
+  }
+  
+  .contact-info span {
+    flex-direction: column;
+    text-align: center;
+    gap: 2px;
   }
 }
 

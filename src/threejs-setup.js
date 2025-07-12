@@ -171,7 +171,7 @@ class FloatingShapes3D {
           metalness: 1.0,
           roughness: 0.6,
           bumpMap: grainTexture,
-          bumpScale: 0.03,
+          bumpScale: 0.07,
           transparent: false,
       });
   }
@@ -229,25 +229,26 @@ class FloatingShapes3D {
         trigger: '.hero',
         start: 'top top',
         end: 'bottom bottom',
-        scrub: isBg ? 8 : 6,
+        scrub: isBg ? 8 : 10,
+        pin: false, // Don't pin here since we're handling it in main.js
       }
     });
     tl.to(shape.position, {
       y: shape.userData.originalY + 40,
-      duration: 5,
+      duration: 2,
     });
     tl.to(shape.rotation, {
       x: shape.rotation.x + Math.PI * 2,
       y: shape.rotation.y + Math.PI * 2,
       z: shape.rotation.z + Math.PI,
-      duration: 6,
+      duration: 4,
     }, 0);
     tl.fromTo(shape.scale, {
       x: 0.1, y: 0.1, z: 0.1
     }, {
       x: 1, y: 1, z: 1,
       duration: 2,
-      ease: 'elastic.out(1, 0.3)'
+      ease: 'elastic.out(1, 0.8)'
     }, 0);
   }
 
@@ -373,9 +374,7 @@ class FloatingShapes3D {
     this.bgScene.add(ambientLight.clone());
     const directionalLight = new THREE.DirectionalLight(0xffffff, 1.2);
     directionalLight.position.set(10, 20, 10);
-    directionalLight.castShadow = true;
-    directionalLight.shadow.mapSize.width = 2048;
-    directionalLight.shadow.mapSize.height = 2048;
+    directionalLight.castShadow = false;
     this.scene.add(directionalLight);
     this.bgScene.add(directionalLight.clone());
     const pointLight1 = new THREE.PointLight(0x8fd3f4, 0.7, 50);
@@ -394,8 +393,9 @@ class FloatingShapes3D {
       scrollTrigger: {
         trigger: '.hero',
         start: 'top top',
-        end: 'bottom bottom',
-        scrub: 8
+        end: 'bottom top',
+        scrub: 8,
+        pin: false, // Don't pin here since we're handling it in main.js
       },
       z: 10,
       y: 10,
@@ -404,10 +404,11 @@ class FloatingShapes3D {
     // Scene rotation (main scene)
     gsap.to(this.scene.rotation, {
       scrollTrigger: {
-        trigger: '.hero',
+        trigger: '.hero-wrapper',
         start: 'top top',
-        end: 'bottom bottom',
-        scrub: 8
+        end: 'bottom top',
+        scrub: 7,
+        pin: false, // Don't pin here since we're handling it in main.js
       },
       y: 6,
       duration: 2

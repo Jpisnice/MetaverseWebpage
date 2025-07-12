@@ -3,11 +3,30 @@ import { setupPlanInteractions } from './orbits.js';
 import { SplitText
  } from 'gsap/SplitText';
  import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-gsap.registerPlugin(SplitText);
+gsap.registerPlugin(SplitText, ScrollTrigger);
 
 document.addEventListener('DOMContentLoaded', () => {
   setupPlanInteractions();
+  
+  // Pin the hero section until Three.js scroll animation is complete
+  ScrollTrigger.create({
+    trigger: '.hero',
+    start: 'top top',
+    end: 'bottom bottom',
+    pin: true,
+    pinSpacing: true,
+    scrub: 1,
+    onUpdate: (self) => {
+      // Optional: Add any additional logic during the pin
+      console.log('Hero section pinned, progress:', self.progress);
+    },
+    onComplete: () => {
+      // Animation complete, hero section will unpin
+      console.log('Hero section animation complete');
+    }
+  });
   
   const text = new SplitText('.hero-text', {
     type: 'chars',
