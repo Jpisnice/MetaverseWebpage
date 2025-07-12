@@ -216,13 +216,50 @@ nav a{
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 10px;
-  gap: 10px;
-  background-color: #333;
-  color: #fff;
+  background: rgba(40, 32, 49, 0.15);
+  border-radius: 20px;
 }
 
-.feature{}
+.feature {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 140px;
+  padding: 18px 10px;
+  background: rgba(255,255,255,0.04);
+  box-shadow: 0 2px 12px 0 rgba(0,0,0,0.07);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.feature:hover {
+  transform: translateY(-6px) scale(1.04);
+  box-shadow: 0 6px 24px 0 rgba(255,0,128,0.12);
+}
+
+.feature svg {
+  margin-bottom: 6px;
+  filter: drop-shadow(0 2px 8px rgba(255,0,128,0.12));
+}
+
+.feature span {
+  font-size: 1.08rem;
+  font-weight: 500;
+  color: #fff;
+  text-align: center;
+  letter-spacing: 0.01em;
+}
+
+@media (max-width: 700px) {
+  .features {
+    flex-direction: column;
+    gap: 18px;
+    padding: 24px 0;
+  }
+  .feature {
+    min-width: 0;
+    width: 90%;
+  }
+}
 
 .loading {
   position: fixed;
